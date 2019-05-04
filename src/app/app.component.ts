@@ -1,16 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: './app.component.html',
-//   styleUrls: ['./app.component.scss']
-// })
-// export class AppComponent {
-//   title = 'app';
-// }
-
-
-
 import { Component, OnInit } from '@angular/core';
 
 declare var myAct: any;
@@ -21,10 +8,12 @@ declare var myAct: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Tooltip-APP';
 
   ngOnInit() {
-    myAct();
+    
+	  myAct();
+
   }
 }
 

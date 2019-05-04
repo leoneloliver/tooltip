@@ -1,0 +1,184 @@
+// variables
+$btn-color: #9676ff;
+$btn-color--hover: #b39cff;
+$btn-text-color: #fff;
+$btn-color--clean: #ff7b4d;
+$btn-color--hover--clean: #ffa07f;
+$btn-text-color--clean: #fff;
+$dark-color: #000;
+$bg-color:  #dcdcdc;
+$gradient-start: #2590ba;
+$gradient-midle: #6f86ca;
+$gradient-end: #6d4b85;
+
+
+
+// mixins
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }  
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }  
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin transition($what, $time, $how) {
+  -webkit-transition: $what $time $how;
+  -moz-transition: $what $time $how;
+  -ms-transition: $what $time $how;
+  -o-transition: $what $time $how;
+  transition: $what $time $how;
+}
+
+@mixin flex-grid-items($cols) {
+  display: flex;
+  flex-wrap: wrap;
+  > * {
+    $item-width: 100% / $cols;
+    width: $item-width;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+}
+
+@include keyframes(fade-in) {
+  0% { opacity: 0.5; }
+  30% { opacity: 1; }
+}
+
+// styles
+
+
+.bottom{
+  margin-bottom: 900px;
+}
+
+.container{
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0px 12px;
+}
+.container__centered {
+   text-align: center;
+}
+.extra-space{
+   padding: 20px;
+   box-sizing: border-box;
+}
+.button{
+  padding: 12px 0px;
+  background: #327aaa;
+  margin: 12px 8px;
+  // border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  width: 158px;
+  border: 0;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  background: $btn-color;
+  color: $btn-text-color;
+  @include transition(background-color, .2s ,ease-out);
+  &:hover{
+    background: $btn-color--hover;
+  }
+  .button__tooltip{
+    display: none;
+    position: absolute;
+    margin-top: -68px;
+    background: #21202096;
+    margin-left: 10px;
+    padding: 8px 0 8px 0px;
+    width: 140px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    color: $btn-text-color;
+    @include animation('fade-in 5s 3');
+    @include transition(all, 0.2s, ease-in-out);
+  }
+  
+}
+
+.button--clean{
+  @extend .button;
+    background: $btn-color--clean;
+    color: $btn-text-color--clean;
+    &:hover{
+      background: $btn-color--hover--clean;
+    }
+  }
+
+.button__reach .button__tooltip{
+    margin-top: 22px;
+ }
+.tooltop--open > .button__tooltip{
+    display: block;
+ }
+
+.flex-mult-cols {
+  @include flex-grid-items(2);
+}
+
+
+.button__tooltip i {
+  border: solid #212020c7;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  position: absolute;
+  bottom: -3px;
+  margin-left: 20px;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.button__reach{
+  i{
+    bottom: auto;
+    top: -3px;
+  }
+  .down {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .flex-mult-cols {
+    display: block;
+    text-align: center;
+  }
+  .flex-mult-cols > *{
+    width: 100%;
+  }
+  .container{
+    text-align: center;
+  }
+}
+
+
