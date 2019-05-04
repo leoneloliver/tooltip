@@ -1,0 +1,39 @@
+.top{
+  margin-top: 300px;
+}
+.bottom{
+  margin-bottom: 1000px;
+}
+
+$btn-color: #327aaa;
+$btn-text-color: #fff;
+
+.button{
+  padding: 5px 30px;
+  background: $btn-color;
+  margin: 12px 8px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  cursor: pointer;
+  color: $btn-text-color;
+  .button__tooltip{
+    display: none;
+    position: absolute;
+    margin-top: -58px;
+    background: #212020c7;
+    margin-left: -22px;
+    padding: 7px 0;
+    width: 100px;
+    border-radius: 5px;
+    color: #fff;
+  }
+}
+.button__reach .button__tooltip{
+    margin-top: 15px;
+  }
+.tooltop--open > .button__tooltip{
+    display: block;
+ }
+
+
+
