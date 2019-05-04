@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
 	  });
 	  html.addEventListener("click", hideTooltip);
 
+	  // scroll events
 	  window.onscroll = function() {  
 	    if( window.scrollY >= ( thisEl - 50 ) ){     
 	      Array.from(classname).forEach(function(element){
@@ -54,6 +55,13 @@ export class HomeComponent implements OnInit {
 	      });
 	    }
 	  }
+	  //call actions when ESC is pressed
+	  document.addEventListener('keyup', function (event) {
+	    var key = event.key || event.keyCode;
+	    if (key === 'Escape' || key === 'Esc' || key === 27) {
+	       hideTooltip();
+	    }
+		});
 	  
   }
 
