@@ -43,9 +43,8 @@ export class HomeComponent implements OnInit {
 	  });
 	  html.addEventListener("click", hideTooltip);
 
-	  // scroll events
 	  window.onscroll = function() {  
-	    if( window.scrollY >= ( thisEl - 50 ) ){     
+	    if( window.scrollY >= ( thisEl + 40 ) ){     
 	      Array.from(classname).forEach(function(element){
 	        element.classList.add('button__reach');
 	      });
@@ -55,11 +54,18 @@ export class HomeComponent implements OnInit {
 	      });
 	    }
 	  }
-	  //call actions when ESC is pressed
+
 	  document.addEventListener('keyup', function (event) {
+	    if (event.defaultPrevented) {
+	        return;
+	    }
+
 	    var key = event.key || event.keyCode;
+
 	    if (key === 'Escape' || key === 'Esc' || key === 27) {
-	       hideTooltip();
+	        Array.from(classname).forEach(function(element){
+	      		element.classList.remove('tooltop--open');
+	    		});
 	    }
 		});
 	  
