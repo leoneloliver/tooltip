@@ -17,18 +17,16 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  	console.log('script init...');
-
 	  const html = document.getElementsByTagName("HTML")[0];
 	  const classname = document.getElementsByClassName("button");
 	  const thisEl = Math.round(classname[0].getBoundingClientRect().top);
 
 	  const hideTooltip = function(e) {
-	    Array.from(classname).forEach(function(element){
+	  	Array.from(classname).forEach(function(element){
 	      element.classList.remove('tooltop--open');
 	    });
 	    e.stopPropagation();
-	  }
+	  };
 
 	  const showTooltip = function(e) {
 	    Array.from(classname).forEach(function(element){
@@ -56,17 +54,17 @@ export class HomeComponent implements OnInit {
 	  }
 
 	  document.addEventListener('keyup', function (event) {
-	    if (event.defaultPrevented) {
-	        return;
-	    }
+			if (event.defaultPrevented) {
+		    return;
+			}
 
-	    var key = event.key || event.keyCode;
+			var key = event.key || event.keyCode;
 
-	    if (key === 'Escape' || key === 'Esc' || key === 27) {
-	        Array.from(classname).forEach(function(element){
-	      		element.classList.remove('tooltop--open');
-	    		});
-	    }
+			if (key === 'Escape' || key === 'Esc' || key === 27) {
+		    Array.from(classname).forEach(function(element){
+		  		element.classList.remove('tooltop--open');
+				});
+			}
 		});
 	  
   }
